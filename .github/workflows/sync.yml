@@ -1,0 +1,27 @@
+name: sync
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Sincronizar commits de la organización
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: scripts/sync.sh
+      - name: Publicar
+        run: git push origin HEAD:main
