@@ -14,4 +14,6 @@ El workflow [`sync`](.github/workflows/sync.yml) corre cada 30 minutos (y a mano
 
 Reglas: `activities` no se replica a sí mismo; solo se replican repos públicos; los repos nuevos entran solos.
 
+**Actualizar de inmediato:** GitHub suele retrasar los workflows programados (en la práctica corren cada 4 a 6 horas, no cada 30 minutos), así que un commit nuevo puede tardar en aparecer aquí. Cuando necesite que se refleje enseguida, ejecute *Run workflow* (pestaña *Actions* → `sync` → *Run workflow*) o, desde la terminal, `gh workflow run sync.yml`. Esto lanza la sincronización al instante en lugar de esperar a la siguiente ejecución programada.
+
 Local: `scripts/sync.sh` (requiere `gh` autenticado) o `scripts/sync.sh verificar`.
