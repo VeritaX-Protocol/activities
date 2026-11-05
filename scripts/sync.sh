@@ -40,8 +40,8 @@ sincronizar() {
   sort -t$'\t' -k1,1 "$TMP/nuevos" | while IFS=$'\t' read -r fecha repo sha nombre email asunto; do
     GIT_AUTHOR_NAME="$nombre" GIT_AUTHOR_EMAIL="$email" GIT_AUTHOR_DATE="$fecha" \
     GIT_COMMITTER_NAME="$nombre" GIT_COMMITTER_EMAIL="$email" GIT_COMMITTER_DATE="$fecha" \
-      git commit --allow-empty -q -m "[$repo] $asunto" -m "Source: $ORG/$repo@$sha"
-    echo "+ [$repo] $asunto"
+      git commit --allow-empty -q -m "$repo - $asunto" -m "Source: $ORG/$repo@$sha"
+    echo "+ $repo - $asunto"
   done
 }
 

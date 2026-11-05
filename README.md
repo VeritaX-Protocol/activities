@@ -2,7 +2,7 @@
 
 Espejo de la actividad de la organización **VeritaX-Protocol**. Cada commit de cada repositorio público de la organización se replica aquí, 1 a 1, como un commit vacío:
 
-- mensaje: `[repo] asunto original` (solo la primera línea del mensaje);
+- mensaje: `repo - asunto original` (solo la primera línea del mensaje; los commits creados antes del 5 nov 2026 usan el formato `[repo] asunto`);
 - autor y fecha: los del commit original;
 - cuerpo: `Source: VeritaX-Protocol/repo@sha`, que evita duplicados.
 
